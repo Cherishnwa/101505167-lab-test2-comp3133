@@ -1,4 +1,5 @@
 # 101505167LabTest2Comp3133
+<img width="800" height="450" alt="Screenshot 2026-04-08 172723" src="https://github.com/user-attachments/assets/d7a975ee-2fb0-456f-9690-82c3a5cb30c9" />
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
 
