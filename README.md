@@ -24,18 +24,20 @@ A Harry Potter Characters Angular application built as part of the COMP 3133 Ful
 ### All Characters Page
 Displays all Harry Potter characters fetched from the API in a responsive card grid. Each card shows the character's image, name, and house badge coloured by house.
 
-![All Characters](screenshots/characters.png)
+**Main Page- All characters**
+<img width="800" height="450" alt="Screenshot 2026-04-08 172723" src="https://github.com/user-attachments/assets/d7a975ee-2fb0-456f-9690-82c3a5cb30c9">
 
 ### Filter by House Page
 Allows users to select a Hogwarts house from a dropdown. The page then fetches and displays all characters belonging to that house.
 
-![Filter by House](screenshots/filter.png)
+**Filter By Page**
+<img width="700" height="350" alt="Screenshot 2026-04-08 172855" src="https://github.com/user-attachments/assets/cb3a72ff-5981-4352-bfbb-56273910bd8c">
 
 ### Character Details Page
 Shows a full profile of the selected character including their wand details, ancestry, species, wizard status, actor, and patronus.
 
-![Character Details](screenshots/details.png)
-
+**Character Details Page**
+<img width="750" height="350" alt="Screenshot 2026-04-08 172855" src="https://github.com/user-attachments/assets/1dbc786f-5807-4be5-9ccd-ef5be07e0768">
 ---
 
 ## Tech Stack
