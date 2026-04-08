@@ -1,33 +1,107 @@
-# 101505167LabTest2Comp3133
-<img width="800" height="450" alt="Screenshot 2026-04-08 172723" src="https://github.com/user-attachments/assets/d7a975ee-2fb0-456f-9690-82c3a5cb30c9" />
+# 101505167-lab-test2-comp3133
+**COMP 3133 – Lab Test 2 | Cherish Nwansi | 101505167**
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+A Harry Potter Characters Angular application built as part of the COMP 3133 Full Stack Development course at George Brown College. The app uses the [HP API](https://hp-api.onrender.com/) to display, filter, and explore Harry Potter characters with a custom pink + Hogwarts dark theme.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features Implemented
 
-## Code scaffolding
+- **Character List** – Displays all Harry Potter characters in a responsive grid with name, house, and image
+- **Filter by House** – Dropdown to filter characters by Hogwarts house (Gryffindor, Slytherin, Hufflepuff, Ravenclaw)
+- **Character Details** – Full profile page for each character including wand details, ancestry, species, actor, and patronus
+- **HP Service** – Dedicated Angular service handling all API calls
+- **Character Interface** – Typed data model for all character fields
+- **Angular Material** – Used throughout for cards, spinners, toolbar, select, buttons, and icons
+- **Routing** – Angular Router with three routes: `/characters`, `/filter`, `/character/:id`
+- **Responsive Design** – Works on desktop and mobile screens
+- **Pink + Harry Potter Dark Theme** – Custom dark purple background with pink accents and gold text
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-<img width="700" height="350" alt="Screenshot 2026-04-08 172855" src="https://github.com/user-attachments/assets/cb3a72ff-5981-4352-bfbb-56273910bd8c" />
+## Screenshots
 
-<img width="750" height="350" alt="Screenshot 2026-04-08 172855" src="https://github.com/user-attachments/assets/1dbc786f-5807-4be5-9ccd-ef5be07e0768" />
+### All Characters Page
+Displays all Harry Potter characters fetched from the API in a responsive card grid. Each card shows the character's image, name, and house badge coloured by house.
 
+![All Characters](screenshots/characters.png)
 
-## Build
+### Filter by House Page
+Allows users to select a Hogwarts house from a dropdown. The page then fetches and displays all characters belonging to that house.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![Filter by House](screenshots/filter.png)
 
-## Running unit tests
+### Character Details Page
+Shows a full profile of the selected character including their wand details, ancestry, species, wizard status, actor, and patronus.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Character Details](screenshots/details.png)
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Tech Stack
 
-## Further help
+- Angular 17 (Standalone Components)
+- Angular Material
+- TypeScript
+- SCSS
+- HP REST API – https://hp-api.onrender.com/
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## Instructions to Run the Project
+
+### Prerequisites
+Make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [Angular CLI](https://angular.io/cli) – install with `npm install -g @angular/cli`
+
+### Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Cherishnwa/101505167-lab-test2-comp3133.git
+   cd 101505167-lab-test2-comp3133
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+   ```bash
+   ng serve
+   ```
+
+4. **Open in browser**
+   ```
+   http://localhost:4200
+   ```
+
+### Build for Production
+```bash
+ng build
+```
+Output will be in `dist/101505167-lab-test2-comp3133/browser/`
+
+---
+
+## Live Demo
+🔗 Hosted on Vercel: https://101505167-lab-test2-comp3133.vercel.app
+
+## GitHub Repository
+🔗 https://github.com/Cherishnwa/101505167-lab-test2-comp3133
+
+---
+
+## API Endpoints Used
+
+| Endpoint | Description |
+|----------|-------------|
+| `GET /api/characters` | Fetch all HP characters |
+| `GET /api/characters/house/:house` | Fetch characters by house |
+| `GET /api/character/:id` | Fetch single character by ID |
+
+---
+
+*COMP 3133 – Full Stack Development II | George Brown College | Winter 2026*
