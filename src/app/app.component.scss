@@ -1,0 +1,63 @@
+// ── Navbar ────────────────────────────────────────────────────────────────────
+.navbar {
+  background: linear-gradient(135deg, #1a0535 0%, #3d0a5a 50%, #1a0535 100%) !important;
+  border-bottom: 2px solid #e91e8c;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(233, 30, 140, 0.3);
+}
+
+.app-title {
+  font-family: 'Georgia', serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffd700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.wand-icon {
+  height: 28px;
+  width: auto;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+// Active nav link glow effect
+.active-link {
+  color: #ffd700 !important;
+  border-bottom: 2px solid #e91e8c;
+}
+
+a[mat-button] {
+  color: #f8bbd0 !important;
+  font-family: 'Georgia', serif;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: #ffd700 !important;
+    background: rgba(233, 30, 140, 0.15) !important;
+  }
+}
+
+// ── Main content area ─────────────────────────────────────────────────────────
+.main-content {
+  min-height: calc(100vh - 130px);
+  padding: 24px 16px;
+  background: #0d0221;
+}
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+.footer {
+  background: #1a0535;
+  border-top: 1px solid #e91e8c;
+  text-align: center;
+  padding: 12px;
+  color: #f8bbd0;
+  font-size: 0.85rem;
+}

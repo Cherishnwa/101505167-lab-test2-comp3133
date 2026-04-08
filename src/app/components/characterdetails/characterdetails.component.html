@@ -1,0 +1,132 @@
+<!-- ── Back Button ──────────────────────────────────────────────────────── -->
+<div class="back-row">
+  <button mat-stroked-button class="back-btn" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon> Back to Characters
+  </button>
+</div>
+
+<!-- ── Loading ──────────────────────────────────────────────────────────── -->
+<div *ngIf="loading" class="loading-container">
+  <mat-spinner color="accent" diameter="60"></mat-spinner>
+  <p class="loading-text">Consulting the Hogwarts records...</p>
+</div>
+
+<!-- ── Error ────────────────────────────────────────────────────────────── -->
+<div *ngIf="error" class="error-msg">
+  <mat-icon>error_outline</mat-icon> {{ error }}
+</div>
+
+<!-- ── Character Detail Card ────────────────────────────────────────────── -->
+<div *ngIf="!loading && character" class="detail-wrapper">
+
+  <mat-card class="detail-card">
+
+    <div class="detail-layout">
+
+      <!-- LEFT: Character Image -->
+      <div class="image-section">
+        <img
+          [src]="character.image || 'https://via.placeholder.com/400x500?text=No+Image'"
+          [alt]="character.name"
+          class="character-image"
+          (error)="onImageError($event)"
+        />
+
+        <!-- Alive/Deceased badge under image -->
+        <div class="alive-badge" [class.alive]="character.alive" [class.deceased]="!character.alive">
+          <mat-icon>{{ character.alive ? 'favorite' : 'favorite_border' }}</mat-icon>
+          {{ character.alive ? 'Alive' : 'Deceased' }}
+        </div>
+      </div>
+
+      <!-- RIGHT: Character Info -->
+      <div class="info-section">
+
+        <!-- Name + House -->
+        <h1 class="character-name">{{ character.name }}</h1>
+
+        <span class="house-badge" [class]="getHouseClass(character.house)">
+          🏰 {{ character.house || 'No House' }}
+        </span>
+
+        <mat-divider class="divider"></mat-divider>
+
+        <!-- Details grid -->
+        <div class="details-grid">
+
+          <div class="detail-row">
+            <mat-icon class="detail-icon">person</mat-icon>
+            <span class="detail-label">Actor</span>
+            <span class="detail-value accent">{{ character.actor || '—' }}</span>
+          </div>
+
+          <div class="detail-row">
+            <mat-icon class="detail-icon">science</mat-icon>
+            <span class="detail-label">Species</span>
+            <span class="detail-value accent">{{ character.species || '—' }}</span>
+          </div>
+
+          <div class="detail-row">
+            <mat-icon class="detail-icon">auto_fix_high</mat-icon>
+            <span class="detail-label">Wizard</span>
+            <span class="detail-value accent">{{ character.wizard ? 'Yes' : 'No' }}</span>
+          </div>
+
+          <div class="detail-row">
+            <mat-icon class="detail-icon">account_tree</mat-icon>
+            <span class="detail-label">Ancestry</span>
+            <span class="detail-value accent">{{ character.ancestry || '—' }}</span>
+          </div>
+
+          <div class="detail-row">
+            <mat-icon class="detail-icon">transgender</mat-icon>
+            <span class="detail-label">Gender</span>
+            <span class="detail-value accent">{{ character.gender || '—' }}</span>
+          </div>
+
+          <div class="detail-row">
+            <mat-icon class="detail-icon">pets</mat-icon>
+            <span class="detail-label">Patronus</span>
+            <span class="detail-value accent">{{ character.patronus || '—' }}</span>
+          </div>
+
+        </div>
+
+        <mat-divider class="divider"></mat-divider>
+
+        <!-- Wand Section -->
+        <div class="wand-section">
+          <h3 class="wand-title">
+            <mat-icon>wand</mat-icon> Wand Details
+          </h3>
+
+          <div class="details-grid">
+
+            <div class="detail-row">
+              <mat-icon class="detail-icon">forest</mat-icon>
+              <span class="detail-label">Wood</span>
+              <span class="detail-value pink">{{ character.wand?.wood || '—' }}</span>
+            </div>
+
+            <div class="detail-row">
+              <mat-icon class="detail-icon">stars</mat-icon>
+              <span class="detail-label">Core</span>
+              <span class="detail-value pink">{{ character.wand?.core || '—' }}</span>
+            </div>
+
+            <div class="detail-row">
+              <mat-icon class="detail-icon">straighten</mat-icon>
+              <span class="detail-label">Length</span>
+              <span class="detail-value pink">
+                {{ character.wand?.length ? character.wand.length + ' inches' : '—' }}
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </mat-card>
+</div>

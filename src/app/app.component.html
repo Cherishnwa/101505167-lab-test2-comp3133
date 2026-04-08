@@ -1,0 +1,28 @@
+<!-- ── Top Navigation Bar ───────────────────────────────────────────────── -->
+<mat-toolbar class="navbar">
+  <!-- App logo/title -->
+  <span class="app-title">
+    <img src="assets/wand.svg" alt="wand" class="wand-icon" onerror="this.style.display='none'" />
+    ⚡ Harry Potter Characters
+  </span>
+
+  <span class="spacer"></span>
+
+  <!-- Navigation links -->
+  <a mat-button routerLink="/characters" routerLinkActive="active-link">
+    <mat-icon>groups</mat-icon> All Characters
+  </a>
+  <a mat-button routerLink="/filter" routerLinkActive="active-link">
+    <mat-icon>filter_list</mat-icon> Filter by House
+  </a>
+</mat-toolbar>
+
+<!-- ── Page Content ─────────────────────────────────────────────────────── -->
+<main class="main-content">
+  <router-outlet />
+</main>
+
+<!-- ── Footer ───────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <p>✨ COMP 3133 Lab Test 2 &nbsp;|&nbsp; Cherish Nwansi &nbsp;|&nbsp; 101505167</p>
+</footer>

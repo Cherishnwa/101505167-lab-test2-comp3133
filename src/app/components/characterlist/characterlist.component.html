@@ -1,0 +1,58 @@
+<!-- ── Page Header ──────────────────────────────────────────────────────── -->
+<div class="page-header">
+  <h1 class="page-title">✨ All Harry Potter Characters</h1>
+  <p class="page-subtitle">Click any character to see their full profile</p>
+</div>
+
+<!-- ── Loading Spinner ──────────────────────────────────────────────────── -->
+<div *ngIf="loading" class="loading-container">
+  <mat-spinner color="accent" diameter="60"></mat-spinner>
+  <p class="loading-text">Summoning characters from Hogwarts...</p>
+</div>
+
+<!-- ── Error Message ────────────────────────────────────────────────────── -->
+<div *ngIf="error" class="error-msg">
+  <mat-icon>error_outline</mat-icon>
+  <span>{{ error }}</span>
+</div>
+
+<!-- ── Characters Grid ──────────────────────────────────────────────────── -->
+<div *ngIf="!loading && !error" class="characters-grid">
+
+  <mat-card
+    *ngFor="let character of characters"
+    class="character-card"
+    (click)="viewDetails(character.id)"
+    [class]="'card-' + getHouseClass(character.house)"
+  >
+
+    <!-- Character Image -->
+    <div class="card-image-wrapper">
+      <img
+        mat-card-image
+        [src]="character.image || 'https://via.placeholder.com/300x400?text=No+Image'"
+        [alt]="character.name"
+        class="character-image"
+        (error)="onImageError($event)"
+      />
+      <!-- Hover overlay -->
+      <div class="card-overlay">
+        <mat-icon>visibility</mat-icon>
+        <span>View Details</span>
+      </div>
+    </div>
+
+    <!-- Card Content -->
+    <mat-card-content class="card-content">
+      <!-- Character name -->
+      <h3 class="character-name">{{ character.name }}</h3>
+
+      <!-- House badge -->
+      <span class="house-badge" [class]="getHouseClass(character.house)">
+        {{ character.house || 'No House' }}
+      </span>
+    </mat-card-content>
+
+  </mat-card>
+
+</div>

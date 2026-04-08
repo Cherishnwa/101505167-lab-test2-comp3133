@@ -1,0 +1,91 @@
+<!-- ── Page Header ──────────────────────────────────────────────────────── -->
+<div class="page-header">
+  <h1 class="page-title">🏰 Filter Characters by House</h1>
+  <p class="page-subtitle">Choose a Hogwarts house to see its members</p>
+</div>
+
+<!-- ── House Dropdown (Angular Material Select) ────────────────────────── -->
+<div class="filter-wrapper">
+  <mat-form-field appearance="outline" class="house-select">
+    <mat-label>Select a House</mat-label>
+    <mat-select
+      [(ngModel)]="selectedHouse"
+      (ngModelChange)="onHouseChange()"
+    >
+      <!-- Loop through house names array to generate options -->
+      <mat-option *ngFor="let house of houses" [value]="house">
+        {{ house }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!-- ── Loading Spinner ──────────────────────────────────────────────────── -->
+<div *ngIf="loading" class="loading-container">
+  <mat-spinner color="accent" diameter="50"></mat-spinner>
+  <p class="loading-text">Calling the Sorting Hat...</p>
+</div>
+
+<!-- ── Error ────────────────────────────────────────────────────────────── -->
+<div *ngIf="error" class="error-msg">
+  <mat-icon>error_outline</mat-icon> {{ error }}
+</div>
+
+<!-- ── Placeholder when no house selected yet ───────────────────────────── -->
+<div *ngIf="!selectedHouse && !loading" class="placeholder">
+  <mat-icon class="hat-icon">school</mat-icon>
+  <p>Select a house above to see its characters</p>
+</div>
+
+<!-- ── Results count ────────────────────────────────────────────────────── -->
+<div *ngIf="selectedHouse && !loading && characters.length > 0" class="results-count">
+  <span class="house-badge-lg" [class]="getHouseClass(selectedHouse)">
+    {{ selectedHouse }}
+  </span>
+  <span class="count-text">— {{ characters.length }} characters found</span>
+</div>
+
+<!-- ── Characters Grid ──────────────────────────────────────────────────── -->
+<div *ngIf="!loading && characters.length > 0" class="characters-grid">
+
+  <mat-card
+    *ngFor="let character of characters"
+    class="character-card"
+    (click)="viewDetails(character.id)"
+    [class]="'card-' + getHouseClass(character.house)"
+  >
+
+    <!-- Image -->
+    <div class="card-image-wrapper">
+      <img
+        [src]="character.image || 'https://via.placeholder.com/300x400?text=No+Image'"
+        [alt]="character.name"
+        class="character-image"
+        (error)="onImageError($event)"
+      />
+      <div class="card-overlay">
+        <mat-icon>visibility</mat-icon>
+        <span>View Details</span>
+      </div>
+    </div>
+
+    <!-- Card info -->
+    <mat-card-content class="card-content">
+      <h3 class="character-name">{{ character.name }}</h3>
+      <p class="character-actor" *ngIf="character.actor">
+        Actor: {{ character.actor }}
+      </p>
+      <span class="house-badge" [class]="getHouseClass(character.house)">
+        {{ character.house }}
+      </span>
+    </mat-card-content>
+
+  </mat-card>
+
+</div>
+
+<!-- ── No characters in house ───────────────────────────────────────────── -->
+<div *ngIf="selectedHouse && !loading && characters.length === 0 && !error" class="no-results">
+  <mat-icon>search_off</mat-icon>
+  <p>No characters found for {{ selectedHouse }}</p>
+</div>

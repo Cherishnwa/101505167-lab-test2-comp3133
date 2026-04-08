@@ -1,0 +1,189 @@
+// ── Back button ───────────────────────────────────────────────────────────────
+.back-row {
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  color: #f8bbd0 !important;
+  border-color: #e91e8c !important;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(233, 30, 140, 0.15) !important;
+    color: #ffd700 !important;
+  }
+}
+
+// ── Loading ───────────────────────────────────────────────────────────────────
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 80px 0;
+}
+
+.loading-text { color: #f8bbd0; font-style: italic; }
+
+// ── Error ─────────────────────────────────────────────────────────────────────
+.error-msg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f48fb1;
+  background: rgba(244, 143, 177, 0.1);
+  border: 1px solid #f48fb1;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+// ── Detail wrapper + card ──────────────────────────────────────────────────────
+.detail-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.detail-card {
+  background: #12022a !important;
+  border: 1px solid rgba(233, 30, 140, 0.4) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 40px rgba(233, 30, 140, 0.2) !important;
+  overflow: hidden;
+}
+
+// ── Two-column layout ──────────────────────────────────────────────────────────
+.detail-layout {
+  display: flex;
+  gap: 0;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
+}
+
+// ── Image side ─────────────────────────────────────────────────────────────────
+.image-section {
+  flex: 0 0 340px;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 700px) {
+    flex: none;
+    max-height: 400px;
+  }
+}
+
+.character-image {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+
+  @media (max-width: 700px) {
+    height: 350px;
+  }
+}
+
+.alive-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 0.9rem;
+
+  &.alive    { background: #1a472a; color: #69f0ae; }
+  &.deceased { background: #3e0000; color: #ef9a9a; }
+}
+
+// ── Info side ──────────────────────────────────────────────────────────────────
+.info-section {
+  flex: 1;
+  padding: 32px 28px;
+  overflow-y: auto;
+}
+
+.character-name {
+  font-family: 'Georgia', serif;
+  font-size: 2rem;
+  color: #e91e8c;
+  text-shadow: 0 0 12px rgba(233, 30, 140, 0.4);
+  margin-bottom: 12px;
+}
+
+.house-badge {
+  display: inline-block;
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+
+  &.gryffindor { background: #740001; color: #ffd700; }
+  &.slytherin   { background: #1a472a; color: #aabf69; }
+  &.hufflepuff  { background: #ecb939; color: #372e29; }
+  &.ravenclaw   { background: #0e1a40; color: #aec1e9; }
+  &.no-house    { background: #3d2a52; color: #f8bbd0; }
+}
+
+.divider {
+  border-color: rgba(233, 30, 140, 0.25) !important;
+  margin: 16px 0 !important;
+}
+
+// ── Details grid ───────────────────────────────────────────────────────────────
+.details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detail-icon {
+  color: #9c6b9e !important;
+  font-size: 1.1rem !important;
+  width: 1.1rem !important;
+  height: 1.1rem !important;
+  flex-shrink: 0;
+}
+
+.detail-label {
+  color: #c8c8c8;
+  font-size: 0.95rem;
+  min-width: 90px;
+}
+
+.detail-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  &.accent { color: #f8bbd0; }
+  &.pink   { color: #f06292; }
+}
+
+// ── Wand section ───────────────────────────────────────────────────────────────
+.wand-section { margin-top: 4px; }
+
+.wand-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffd700;
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+
+  mat-icon { color: #ffd700; }
+}

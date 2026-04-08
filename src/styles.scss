@@ -1,0 +1,78 @@
+// ── Angular Material theming ───────────────────────────────────────────────────
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// ── Custom Pink + Gold palette ─────────────────────────────────────────────────
+$hp-primary: mat.define-palette(mat.$pink-palette, 700, 300, 900);
+$hp-accent:  mat.define-palette(mat.$amber-palette, 500, 300, 700);
+$hp-warn:    mat.define-palette(mat.$red-palette);
+
+// Dark theme with our custom palettes
+$hp-theme: mat.define-dark-theme((
+  color: (
+    primary: $hp-primary,
+    accent:  $hp-accent,
+    warn:    $hp-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+@include mat.all-component-themes($hp-theme);
+
+// ── Global reset & base styles ─────────────────────────────────────────────────
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background-color: #0d0221;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+// ── Custom scrollbar ───────────────────────────────────────────────────────────
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #1a0a2e; }
+::-webkit-scrollbar-thumb { background: #c2185b; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #e91e8c; }
+
+// ── Angular Material overrides ─────────────────────────────────────────────────
+
+// Spinner color
+.mat-mdc-progress-spinner circle {
+  stroke: #e91e8c !important;
+}
+
+// Select panel (dropdown list) background
+.mat-mdc-select-panel {
+  background: #1a0535 !important;
+  border: 1px solid #e91e8c !important;
+}
+
+.mat-mdc-option {
+  color: #f8bbd0 !important;
+
+  &:hover, &.mat-mdc-option-active {
+    background: rgba(233, 30, 140, 0.2) !important;
+  }
+
+  &.mdc-list-item--selected {
+    color: #ffd700 !important;
+  }
+}
+
+// Material card defaults
+.mat-mdc-card {
+  --mdc-elevated-card-container-color: #1a0535;
+}

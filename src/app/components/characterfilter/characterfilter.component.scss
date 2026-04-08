@@ -1,0 +1,195 @@
+.page-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.page-title {
+  font-family: 'Georgia', serif;
+  font-size: 2rem;
+  color: #ffd700;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+  margin-bottom: 8px;
+}
+
+.page-subtitle { color: #f8bbd0; font-size: 0.95rem; }
+
+// ── Dropdown wrapper ──────────────────────────────────────────────────────────
+.filter-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.house-select {
+  width: 300px;
+
+  ::ng-deep .mat-mdc-form-field-flex {
+    background: #1a0535;
+  }
+
+  ::ng-deep label { color: #f8bbd0 !important; }
+
+  ::ng-deep .mat-mdc-select-value { color: #ffd700; }
+
+  ::ng-deep .mdc-notched-outline__leading,
+  ::ng-deep .mdc-notched-outline__notch,
+  ::ng-deep .mdc-notched-outline__trailing {
+    border-color: #e91e8c !important;
+  }
+}
+
+// ── Loading ───────────────────────────────────────────────────────────────────
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 0;
+}
+
+.loading-text { color: #f8bbd0; font-style: italic; }
+
+// ── Error ─────────────────────────────────────────────────────────────────────
+.error-msg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f48fb1;
+  background: rgba(244, 143, 177, 0.1);
+  border: 1px solid #f48fb1;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+// ── Placeholder ───────────────────────────────────────────────────────────────
+.placeholder {
+  text-align: center;
+  color: #9c6b9e;
+  padding: 60px 0;
+
+  .hat-icon { font-size: 4rem; width: 4rem; height: 4rem; margin-bottom: 12px; }
+  p { font-size: 1rem; }
+}
+
+// ── Results header ────────────────────────────────────────────────────────────
+.results-count {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.house-badge-lg {
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+
+  &.gryffindor { background: #740001; color: #ffd700; }
+  &.slytherin   { background: #1a472a; color: #aabf69; }
+  &.hufflepuff  { background: #ecb939; color: #372e29; }
+  &.ravenclaw   { background: #0e1a40; color: #aec1e9; }
+}
+
+.count-text { color: #f8bbd0; font-size: 1rem; }
+
+// ── Grid (same structure as characterlist) ────────────────────────────────────
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.character-card {
+  background: #1a0535 !important;
+  border: 1px solid rgba(233, 30, 140, 0.3);
+  border-radius: 12px !important;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(233, 30, 140, 0.4) !important;
+    border-color: #e91e8c;
+    .card-overlay { opacity: 1; }
+  }
+}
+
+.card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 260px;
+}
+
+.character-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(233, 30, 140, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  font-size: 0.9rem;
+  gap: 6px;
+  mat-icon { font-size: 2rem; }
+}
+
+.card-content {
+  padding: 12px !important;
+  text-align: center;
+}
+
+.character-name {
+  color: #f8bbd0;
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-family: 'Georgia', serif;
+}
+
+.character-actor {
+  color: #ce93d8;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.house-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &.gryffindor { background: #740001; color: #ffd700; }
+  &.slytherin   { background: #1a472a; color: #aabf69; }
+  &.hufflepuff  { background: #ecb939; color: #372e29; }
+  &.ravenclaw   { background: #0e1a40; color: #aec1e9; }
+  &.no-house    { background: #3d2a52; color: #f8bbd0; }
+}
+
+// ── No results ────────────────────────────────────────────────────────────────
+.no-results {
+  text-align: center;
+  color: #9c6b9e;
+  padding: 40px 0;
+  mat-icon { font-size: 3rem; width: 3rem; height: 3rem; }
+  p { font-size: 1rem; margin-top: 8px; }
+}
